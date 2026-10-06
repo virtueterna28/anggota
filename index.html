@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtu Eterna - Angkatan 28 SMA Ar-Rohmah Putra Malang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f3ff',
+                            100: '#e1e7fe',
+                            500: '#3b54cb',
+                            600: '#233686', // Main Primary Color
+                            700: '#1a2766',
+                            800: '#141e4d',
+                            900: '#0e1436',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(23, 34, 86, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-aspect {
+            aspect-ratio: 16 / 9;
+        }
+        .avatar-aspect {
+            aspect-ratio: 1 / 1;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-600 selection:text-white">
+
+    <header class="sticky top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <img src="https://github.com/virtueterna28/web/blob/main/mentahan%20aset%20web/logo%20veterna%20(1).png?raw=true" 
+                         alt="Logo Virtu Eterna" 
+                         class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/233686/ffffff?text=VE28';">
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-brand-600 block leading-tight">VIRTU ETERNA</span>
+                        <span class="text-xs text-slate-500 font-medium tracking-wider uppercase">Angkatan 28 Ar-Rohmah putra</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-slate-600">
+                    <a href="#home" class="hover:text-brand-600 transition-colors">Beranda</a>
+                    <a href="#about" class="hover:text-brand-600 transition-colors">Tentang Kami</a>
+                    <a href="#values" class="hover:text-brand-600 transition-colors">Nilai & Ayat</a>
+                    <a href="#members" class="hover:text-brand-600 transition-colors">Anggota</a>
+                    <a href="#contact" class="hover:text-brand-600 transition-colors">Kontak</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="openModal()" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-2.5 rounded-full shadow-md shadow-brand-600/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        Hubungi Kami
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-brand-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#home" class="mobile-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Beranda</a>
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Tentang Kami</a>
+            <a href="#values" class="mobile-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Nilai & Ayat</a>
+            <a href="#members" class="mobile-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Anggota</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Kontak</a>
+            <button onclick="openModal()" class="w-full mt-2 bg-brand-600 text-white font-semibold py-2.5 rounded-full text-center">
+                Hubungi Kami
+            </button>
+        </div>
+    </header>
+
+    <section id="home" class="relative bg-brand-900 pt-6 pb-16 overflow-hidden text-white">
+        <!-- Background Glow Overlay -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full opacity-20 pointer-events-none">
+            <div class="absolute top-10 left-10 w-96 h-96 bg-brand-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-gold-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Header Text Greeting -->
+            <div class="text-center max-w-3xl mx-auto mb-8 space-y-3">
+                <p class="font-arabic text-2xl sm:text-3xl text-gold-400 font-bold tracking-wide">
+                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                </p>
+                <div class="inline-flex items-center space-x-2 bg-brand-800/80 px-4 py-1.5 rounded-full border border-brand-700 text-xs sm:text-sm font-semibold text-brand-100 uppercase tracking-widest">
+                    <span>✨ Welcome to Virtu Eterna Official Website</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
+                    Veterna - <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-gold-400 to-white">SMA Ar-Rohmah Putra Malang</span>
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg font-normal">
+                    Masa Bakti & Perjuangan 2024 – 2027 • Menjalin Ukhuwah, Mengukir Prestasi, Menembus Impian.
+                </p>
+            </div>
+
+            <!-- Image Slider 16:9 Container -->
+            <div class="relative max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-brand-700/50 hero-aspect group">
+                <div id="slider" class="flex transition-transform duration-700 ease-in-out h-full">
+                    <!-- Slide 1 -->
+                    <div class="min-w-full relative h-full">
+                        <img src="https://i.ibb.co.com/d0YJZB4c/angkatan-1.jpg" 
+                             alt="Foto Angkatan Virtu Eterna 1" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1280x720/233686/ffffff?text=Virtu+Eterna+Slide+1';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 flex items-end p-6 sm:p-10">
+                            <div>
+                                <span class="bg-gold-500 text-brand-900 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Kebersamaan</span>
+                                <h3 class="text-xl sm:text-3xl font-bold text-white">Langkah Awal Perjuangan Bersama</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="min-w-full relative h-full">
+                        <img src="https://github.com/virtueterna28/web/blob/main/mentahan%20aset%20web/Beranda/coban%20talun%20veterna.png?raw=true" 
+                             alt="Kebersamaan Coban Talun" 
+                             class="w-full h-full object-cover"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1280x720/233686/ffffff?text=Coban+Talun+Veterna';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 flex items-end p-6 sm:p-10">
+                            <div>
+                                <span class="bg-brand-500 text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Petualangan & Rihlah</span>
+                                <h3 class="text-xl sm:text-3xl font-bold text-white">Kebersamaan di Coban Talun</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-brand-600 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- Indicators -->
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                    <button class="slide-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                    <button class="slide-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 text-center lg:text-left">
+                    <div class="relative inline-block">
+                        <img src="https://github.com/virtueterna28/web/blob/main/mentahan%20aset%20web/Beranda/coban%20veterna.png?raw=true" 
+                             alt="Logo Virtu Eterna" 
+                             class="w-64 sm:w-80 mx-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/300x300/233686/ffffff?text=Logo+Veterna';">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-brand-50 text-brand-600 font-semibold rounded-md text-sm">
+                        Tentang Virtu Eterna
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                        Generasi Ke-28 Yang Tangguh, Cerdas, dan Berakhlaq Mulia
+                    </h2>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        <strong class="text-brand-600">Virtu Eterna</strong> adalah entitas kebanggaan angkatan ke-28 di SMA Pondok Pesantren Ar-Rohmah Putra Malang. Menjalani masa pendidikan tahun 2024 hingga 2027, kami ditempa untuk menjadi pribadi berdaya saing global, berprinsip kokoh, serta menjunjung tinggi nilai Ukhuwah Islamiyah.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                            <span class="block text-2xl font-extrabold text-brand-600">28</span>
+                            <span class="text-xs font-medium text-slate-500">Angkatan Ke</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                            <span class="block text-2xl font-extrabold text-brand-600">2024 - 2027</span>
+                            <span class="text-xs font-medium text-slate-500">Masa Pendidikan</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center col-span-2 sm:col-span-1">
+                            <span class="block text-2xl font-extrabold text-brand-600">95</span>
+                            <span class="text-xs font-medium text-slate-500">Santri </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="values" class="py-16 bg-slate-100 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-brand-900">Landasan Nilai & Perjuangan</h2>
+                <p class="text-slate-600 mt-2">Pedoman spiritual dan moral yang membakar semangat pantang menyerah serta mempererat persaudaraan kami.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- QS Al-Hujurat Card -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 relative hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <p class="font-arabic text-2xl text-right text-brand-800 leading-loose mb-4">
+                        إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ
+                    </p>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">QS. Al-Hujurat: 10 — Persaudaraan & Ukhuwah</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        "Orang-orang beriman itu sesungguhnya bersaudara. Sebab itu damaikanlah (perbaikilah hubungan) antara kedua saudaramu..."
+                    </p>
+                </div>
+
+                <!-- QS Al-Inshirah Card -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 relative hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-gold-400/20 text-gold-600 rounded-xl flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <p class="font-arabic text-2xl text-right text-brand-800 leading-loose mb-4">
+                        فَإِنَّ مَعَ الْعُسْرِ يُسْرًا • إِنَّ مَعَ الْعُسْرِ يُسْرًا
+                    </p>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">QS. Al-Inshirah: 5-6 — Pantang Menyerah</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        "Maka sesungguhnya bersama kesulitan ada kemudahan. Sesungguhnya bersama kesulitan ada kemudahan."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hadith Banner -->
+            <div class="mt-8 bg-brand-600 text-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2">
+                    <span class="text-gold-400 text-xs uppercase font-bold tracking-widest">Sabda Rasulullah ﷺ</span>
+                    <h4 class="text-xl font-bold">Solidaritas Bagaikan Satu Tubuh</h4>
+                    <p class="text-brand-100 text-sm max-w-2xl">
+                        "Perumpamaan orang-orang yang beriman dalam hal saling mencintai, menyayangi, dan mengasihi bagaikan satu tubuh. Apabila ada salah satu anggota tubuh yang sakit, maka seluruh tubuhnya akan ikut merasa sakit..." (HR. Muslim)
+                    </p>
+                </div>
+                <div class="flex-shrink-0">
+                    <a href="#members" class="bg-white text-brand-600 hover:bg-gold-400 hover:text-brand-900 font-bold px-6 py-3 rounded-xl transition-all shadow-md text-sm">
+                        Lihat Seluruh Anggota
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="members" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-brand-600 font-semibold text-sm">Direktori Angkatan</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">Seluruh Anggota Veterna</h2>
+                    <p class="text-slate-500 text-sm mt-1">Cari nama atau informasi teman seangkatan Virtu Eterna.</p>
+                </div>
+
+                <!-- Search Bar Real-Time -->
+                <div class="w-full md:w-80">
+                    <div class="relative">
+                        <input type="text" 
+                               id="searchInput" 
+                               placeholder="Cari nama anggota..." 
+                               class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-600 focus:bg-white text-sm transition-all shadow-sm">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Members Counter Info -->
+            <div class="mb-6 text-sm text-slate-500 flex justify-between items-center">
+                <span>Menampilkan <strong id="member-count" class="text-brand-600">0</strong> Anggota</span>
+            </div>
+
+            <!-- Grid Kartu Anggota -->
+            <div id="membersGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Cards dynamically populated via JS -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="noResults" class="hidden text-center py-16">
+                <i class="fa-regular fa-face-frown text-5xl text-slate-300 mb-3"></i>
+                <h4 class="text-lg font-bold text-slate-700">Anggota Tidak Ditemukan</h4>
+                <p class="text-slate-500 text-sm">Coba kata kunci pencarian nama yang lain.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-gold-400 font-semibold text-sm">Hubungi Kami</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Tetap Terhubung dengan Virtu Eterna</h2>
+                    <p class="text-slate-400 mt-4 leading-relaxed">
+                        Ada pertanyaan, kerja sama, atau silaturahmi alumni & wali murid? Kirimkan pesan Anda melalui formulir atau hubungi kontak resmi admin web.
+                    </p>
+
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-600/30 text-gold-400 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-sm">Lokasi Kampus</h5>
+                                <p class="text-xs text-slate-400">Jl. apel no 61, Dau, Kab. Malang, Jawa Timur</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-600/30 text-gold-400 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-sm">Email Resmi</h5>
+                                <p class="text-xs text-slate-400">virtueterna28@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-xl">
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Nama Lengkap</label>
+                            <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-brand-500 text-white" placeholder="Masukkan nama anda">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Email / Whatsapp</label>
+                            <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-brand-500 text-white" placeholder="Kontak aktif">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Pesan / Keperluan</label>
+                            <textarea rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-brand-500 text-white" placeholder="Tuliskan pesan anda..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-lg transition-all shadow-md">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-900 text-slate-400 py-12 border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://github.com/virtueterna28/web/blob/main/mentahan%20aset%20web/logo%20veterna%20(1).png?raw=true" 
+                             alt="Logo Veterna Footer" 
+                             class="h-10 w-auto"
+                             onerror="this.onerror=null; this.src='https://placehold.co/80x80/233686/ffffff?text=VE28';">
+                        <span class="text-xl font-bold text-white tracking-tight">VIRTU ETERNA</span>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-sm">
+                        Website Angkatan ke-28 SMA Pondok Pesantren Ar-Rohmah Putra Malang (2024-2027). Mengukir masa depan dalam genggaman Ukhuwah Islamiyah.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Navigasi Cepat</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-white transition">Beranda</a></li>
+                        <li><a href="#about" class="hover:text-white transition">Tentang Kami</a></li>
+                        <li><a href="#values" class="hover:text-white transition">Nilai & Ayat</a></li>
+                        <li><a href="#members" class="hover:text-white transition">Seluruh Anggota</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Media Sosial</h4>
+                    <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/veterna28/" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-white transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 hover:bg-brand-600 flex items-center justify-center text-white transition">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-brand-800/80 text-center text-xs text-slate-500">
+                <p>&copy; 2024 - 2027 Virtu Eterna (Angkatan 28 SMA Ar-Rohmah Putra Malang). web by: Abhipraya Damas, Dilindungi oleh Hak Cipta.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="contactModal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Hubungi Pengurus Veterna</h3>
+            <p class="text-sm text-slate-500 mb-6">Silakan pilih saluran komunikasi resmi angkatan kami di bawah ini:</p>
+            
+            <div class="space-y-3">
+                <a href="https://wa.me/" target="_blank" class="flex items-center space-x-3 p-3 bg-emerald-50 text-emerald-700 rounded-xl hover:bg-emerald-100 transition font-medium text-sm">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>WhatsApp Administrasi Veterna</span>
+                </a>
+                <a href="https://www.instagram.com/rayfin_cruise/" target="_blank" class="flex items-center space-x-3 p-3 bg-pink-50 text-pink-700 rounded-xl hover:bg-pink-100 transition font-medium text-sm">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                    <span>Instagram Resmi Angkatan</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // List data seluruh anggota angkatan 28 Virtu Eterna
+        const membersData = [
+            { name: "Abdul Aziz Abiyyu", origin: "malang", dob: "14-10-2026", motto: "Terus melangkah pantang menyerah", photo: "-", igName: "@rayfin_cruise", igLink: "https://www.instagram.com/rayfin_cruise/" },
+            { name: "Abdurrahman Mardiyanto", origin: "Indonesia", dob: "-", motto: "Menjadi pribadi yang bermanfaat", photo: "", igName: "-", igLink: "#" },
+            { 
+                name: "Abhipraya Damas Okta Ardana", 
+                origin: "Bojonegoro, Jawa Timur", 
+                dob: "16/10/2008", 
+                motto: "Bertakwa, Disiplin, dan Inovatif dalam berkarya", 
+                photo: "https://github.com/virtueterna28/web/blob/main/mentahan%20aset%20web/Members/foto%20teman/WhatsApp%20Image%202025-12-23%20at%2009.47.38%20-%20Abhipraya%20Damas.jpeg?raw=true", 
+                igName: "@rayfin_cruise", 
+                igLink: "https://www.instagram.com/rayfin_cruise/" 
+            },
+            { name: "Achmad Abdul Fattah", origin: "Indonesia", dob: "-", motto: "Istiqomah kunci keberhasilan", photo: "", igName: "-", igLink: "#" },
+            { name: "Ah'naf Syauqi Erghoza", origin: "Indonesia", dob: "-", motto: "Belajar dari pengalaman", photo: "", igName: "-", igLink: "#" },
+            { name: "Ahmad Alrazi Drachman", origin: "Indonesia", dob: "-", motto: "Bekerja keras dalam diam", photo: "", igName: "-", igLink: "#" },
+            { name: "Ahmad Althaf Rabbani", origin: "Indonesia", dob: "-", motto: "Semangat tanpa batas", photo: "", igName: "-", igLink: "#" },
+            { name: "Ahmad Dino Habibie", origin: "Indonesia", dob: "-", motto: "Menggapai cita dengan takwa", photo: "", igName: "-", igLink: "#" },
+            { name: "Ahmad Dzakwan Alify Zayyin", origin: "Indonesia", dob: "-", motto: "Pendidikan adalah senjata", photo: "", igName: "-", igLink: "#" },
+            { name: "Ahmad Hilmi Muzaki", origin: "Indonesia", dob: "-", motto: "Penuh optimisme", photo: "", igName: "-", igLink: "#" },
+            { name: "Ahmad Irsyad Taqiy", origin: "Indonesia", dob: "-", motto: "Disiplin dan jujur", photo: "", igName: "-", igLink: "#" },
+            { name: "Ahnaf Dhiaurrahman", origin: "Indonesia", dob: "-", motto: "Berani memimpin", photo: "", igName: "-", igLink: "#" },
+            { name: "Ain Muyassar Yusuf", origin: "Indonesia", dob: "-", motto: "Kemudahan bersama kesulitan", photo: "", igName: "-", igLink: "#" },
+            { name: "Ajisaka Panji Nugroho", origin: "Indonesia", dob: "-", motto: "Karya nyata untuk negeri", photo: "", igName: "-", igLink: "#" },
+            { name: "Akbar Faisal", origin: "Indonesia", dob: "-", motto: "Tegar dalam cobaan", photo: "", igName: "-", igLink: "#" },
+            { name: "Alfarabi Ibnu Biyansyah", origin: "Indonesia", dob: "-", motto: "Berpikir kritis dan ilmiah", photo: "", igName: "-", igLink: "#" },
+            { name: "Alkiev Masyathir", origin: "Indonesia", dob: "-", motto: "Pantang mundur", photo: "", igName: "-", igLink: "#" },
+            { name: "Almer Mahdy Irhab Fayyadh", origin: "Indonesia", dob: "-", motto: "Menatap masa depan", photo: "", igName: "-", igLink: "#" },
+            { name: "Arka Asyraf Rasyadan", origin: "Indonesia", dob: "-", motto: "Solutif dan mandiri", photo: "", igName: "-", igLink: "#" },
+            { name: "Arsyad Fajri Risam Rendra", origin: "Indonesia", dob: "-", motto: "Bersyukur dalam setiap keadaan", photo: "", igName: "-", igLink: "#" },
+            { name: "Athalah Hasan Al-ghifari", origin: "Indonesia", dob: "-", motto: "Menjadi teladan baik", photo: "", igName: "-", igLink: "#" },
+            { name: "Attariq Haidar Rasyidin", origin: "Indonesia", dob: "-", motto: "Pemberani dan adil", photo: "", igName: "-", igLink: "#" },
+            { name: "Azzam Tsaqib Junaed", origin: "Indonesia", dob: "-", motto: "Tinggi cita-cita", photo: "", igName: "-", igLink: "#" },
+            { name: "Bintang Putra Ramadan", origin: "Indonesia", dob: "-", motto: "Bersinar seperti bintang", photo: "", igName: "-", igLink: "#" },
+            { name: "Daffa' Hanif Amrullah", origin: "Indonesia", dob: "-", motto: "Lurus dalam jalan kebaikan", photo: "", igName: "-", igLink: "#" },
+            { name: "Daris Irsyad Fachri Ahmad", origin: "Indonesia", dob: "-", motto: "Setia pada impian", photo: "", igName: "-", igLink: "#" },
+            { name: "Dzaky Ghaisan Susanto", origin: "Indonesia", dob: "-", motto: "Semangat kebersamaan", photo: "", igName: "-", igLink: "#" },
+            { name: "Ericko Sam Pramudana", origin: "Indonesia", dob: "-", motto: "Inovatif dan kreatif", photo: "", igName: "-", igLink: "#" },
+            { name: "Fahim Aryan Zaki", origin: "Indonesia", dob: "-", motto: "Cerdas berkarakter", photo: "", igName: "-", igLink: "#" },
+            { name: "Fahri Husaini Wahyudi", origin: "Indonesia", dob: "-", motto: "Ukhuwah nomor satu", photo: "", igName: "-", igLink: "#" },
+            { name: "Faith Jadda Fillah", origin: "Indonesia", dob: "-", motto: "Keyakinan teguh", photo: "", igName: "-", igLink: "#" },
+            { name: "Faiz Lutfi Zahwan", origin: "Indonesia", dob: "-", motto: "Sederhana dan berharga", photo: "", igName: "-", igLink: "#" },
+            { name: "Faris Ash Shiddiq", origin: "Indonesia", dob: "-", motto: "Jujur dan terpercaya", photo: "", igName: "-", igLink: "#" },
+            { name: "Farras Shiddiq Gusfa", origin: "Indonesia", dob: "-", motto: "Fokus pada tujuan", photo: "", igName: "-", igLink: "#" },
+            { name: "Ghufron Waliyyuddin Saldi", origin: "Indonesia", dob: "-", motto: "Mengabdi dengan ikhlas", photo: "", igName: "-", igLink: "#" },
+            { name: "Hafizh Nur Raihan", origin: "Indonesia", dob: "-", motto: "Menjaga amanah", photo: "", igName: "-", igLink: "#" },
+            { name: "Haikal Ilham Akbar", origin: "Indonesia", dob: "-", motto: "Impian besar action nyata", photo: "", igName: "-", igLink: "#" },
+            { name: "Hamzah Fauzan Aziz", origin: "Indonesia", dob: "-", motto: "Kuat dan gigih", photo: "", igName: "-", igLink: "#" },
+            { name: "Hanif Ibni Nizam", origin: "Indonesia", dob: "-", motto: "Disiplin diri", photo: "", igName: "-", igLink: "#" },
+            { name: "Hibatulloh Anas", origin: "Indonesia", dob: "-", motto: "Anugerah kebaikan", photo: "", igName: "-", igLink: "#" },
+            { name: "Hifzhan Eizzany Fahrudin", origin: "Indonesia", dob: "-", motto: "Menjaga kehormatan", photo: "", igName: "-", igLink: "#" },
+            { name: "Hilal Akbar Laga Diputra", origin: "Indonesia", dob: "-", motto: "Bersinar terang", photo: "", igName: "-", igLink: "#" },
+            { name: "Ikhwan Setiawan", origin: "Indonesia", dob: "-", motto: "Persaudaraan selamanya", photo: "", igName: "-", igLink: "#" },
+            { name: "Ilham Bintang Yuar", origin: "Indonesia", dob: "-", motto: "Inspirasi generasi muda", photo: "", igName: "-", igLink: "#" },
+            { name: "Khenza Zurheim Muhammad Mulyono", origin: "Indonesia", dob: "-", motto: "Berilmu dan beramal", photo: "", igName: "-", igLink: "#" },
+            { name: "Khenzo Sudhies Muhammad Mulyono", origin: "Indonesia", dob: "-", motto: "Inovatif dan solutif", photo: "", igName: "-", igLink: "#" },
+            { name: "Liwa El Nashr Mubarok", origin: "Indonesia", dob: "-", motto: "Panji kemenangan", photo: "", igName: "-", igLink: "#" },
+            { name: "M Rosydan Ahmad", origin: "Indonesia", dob: "-", motto: "Jalan kebenaran", photo: "", igName: "-", igLink: "#" },
+            { name: "M Zein Yusuf", origin: "Indonesia", dob: "-", motto: "Keindahan akhlak", photo: "", igName: "-", igLink: "#" },
+            { name: "M. Arhaburizqi Azzaky", origin: "Indonesia", dob: "-", motto: "Pintu rezeki dan keberkahan", photo: "", igName: "-", igLink: "#" },
+            { name: "Mandala Budhiana Putra", origin: "Indonesia", dob: "-", motto: "Penjaga peradaban", photo: "", igName: "-", igLink: "#" },
+            { name: "Marhaenusa Rayhandriansyah", origin: "Indonesia", dob: "-", motto: "Semangat pergerakan", photo: "", igName: "-", igLink: "#" },
+            { name: "Miqdad Akrami Azra", origin: "Indonesia", dob: "-", motto: "Mulia dan berani", photo: "", igName: "-", igLink: "#" },
+            { name: "Mochamad Fathir Bintang Ananta", origin: "Indonesia", dob: "-", motto: "Bintang di kegelapan", photo: "", igName: "-", igLink: "#" },
+            { name: "Mohammad Shaffa Revolusi Akbar", origin: "Indonesia", dob: "-", motto: "Perubahan positif", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Abiyyu Dhafran Ansori", origin: "Indonesia", dob: "-", motto: "Keturunan mulia", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Afzaal Fazl Naim", origin: "Indonesia", dob: "-", motto: "Kenikmatan kebaikan", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Ahyan Rizky", origin: "Indonesia", dob: "-", motto: "Karunia yang nyata", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Alif Muaffaq", origin: "Indonesia", dob: "-", motto: "Sukses bermula dari Alif", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Anis Muwaffaq Siddik", origin: "Indonesia", dob: "-", motto: "Teman setia dan jujur", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Denzel Abrisam", origin: "Indonesia", dob: "-", motto: "Lembut dan berkepribadian", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Dhaif Kusyu Nur Hakim", origin: "Indonesia", dob: "-", motto: "Cahaya kebijaksanaan", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Dzaki Nafil", origin: "Indonesia", dob: "-", motto: "Ibadah tambahan yang utama", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Dzaky Al Fajry", origin: "Indonesia", dob: "-", motto: "Fajar harapan baru", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Dzaky Ammar", origin: "Indonesia", dob: "-", motto: "Pembangun kebaikan", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Fathur Rabbani", origin: "Indonesia", dob: "-", motto: "Kemenangan ketuhanan", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Fatih Radeafala", origin: "Indonesia", dob: "-", motto: "Sang penakluk impian", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Ghalib Luthfiansyah", origin: "Indonesia", dob: "-", motto: "Menang dengan kelembutan", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Hadil Ulya", origin: "Indonesia", dob: "-", motto: "Derajat yang tinggi", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Haidar Faiz", origin: "Indonesia", dob: "-", motto: "Pemberani yang menang", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Isyan Aryasatya", origin: "Indonesia", dob: "-", motto: "Kemuliaan yang sejati", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Khalid Assauri", origin: "Indonesia", dob: "-", motto: "Abadi dalam perjuangan", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Nadhif Anwar", origin: "Indonesia", dob: "-", motto: "Bersih dan bercahaya", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Radithya Alvaro Arafat", origin: "Indonesia", dob: "-", motto: "Bijaksana dan bersinar", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Rasya Ibrahim Syachputra", origin: "Indonesia", dob: "-", motto: "Pemimpin yang adil", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Said Khotob", origin: "Indonesia", dob: "-", motto: "Perkataan yang benar", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhammad Syamil Ibrahim", origin: "Indonesia", dob: "-", motto: "Menyeluruh dan utuh", photo: "", igName: "-", igLink: "#" },
+            { name: "Muhandis Alfatihatul Quds", origin: "Indonesia", dob: "-", motto: "Arsitek kebaikan suci", photo: "", igName: "-", igLink: "#" },
+            { name: "Nabhan Fawwaz Mustofa", origin: "Indonesia", dob: "-", motto: "Mulia dan beruntung", photo: "", igName: "-", igLink: "#" },
+            { name: "Nabil Amru Andhara Hamid", origin: "Indonesia", dob: "-", motto: "Mulia dan terpuji", photo: "", igName: "-", igLink: "#" },
+            { name: "Nabil Rouf Aditya", origin: "Indonesia", dob: "-", motto: "Pengasih dan bijak", photo: "", igName: "-", igLink: "#" },
+            { name: "Nafis Hasbi Ihsani", origin: "Indonesia", dob: "-", motto: "Berharga dan berbuat baik", photo: "", igName: "-", igLink: "#" },
+            { name: "Nafis Herza Imani Yusuf", origin: "Indonesia", dob: "-", motto: "Kekuatan iman", photo: "", igName: "-", igLink: "#" },
+            { name: "Najmir Zahran Karim", origin: "Indonesia", dob: "-", motto: "Bintang bersinar mulia", photo: "", igName: "-", igLink: "#" },
+            { name: "Nur Habibie Yusuf Ibrahim", origin: "Indonesia", dob: "-", motto: "Cahaya kekasih", photo: "", igName: "-", igLink: "#" },
+            { name: "Omar Maqil Ghaisani", origin: "Indonesia", dob: "-", motto: "Cerdas dan berwibawa", photo: "", igName: "-", igLink: "#" },
+            { name: "Rabbani Dzaki Ramadhan", origin: "Indonesia", dob: "-", motto: "Bulan penuh keberkahan", photo: "", igName: "-", igLink: "#" },
+            { name: "Radja Chesta Benisia", origin: "Indonesia", dob: "-", motto: "Pemimpin bijaksana", photo: "", igName: "-", igLink: "#" },
+            { name: "Rafa Naufal Nashrullah", origin: "Indonesia", dob: "-", motto: "Pertolongan Allah", photo: "", igName: "-", igLink: "#" },
+            { name: "Rafid Giri Wardana Jauhari", origin: "Indonesia", dob: "-", motto: "Kokoh seperti gunung", photo: "", igName: "-", igLink: "#" },
+            { name: "Ravi Kusuma Wardana", origin: "Indonesia", dob: "-", motto: "Matahari yang indah", photo: "", igName: "-", igLink: "#" },
+            { name: "Rayandi Airawan Sukmawardana", origin: "Indonesia", dob: "-", motto: "Jiwa yang tenang", photo: "", igName: "-", igLink: "#" },
+            { name: "Riffat Akmal Mokoginta", origin: "Indonesia", dob: "-", motto: "Tinggi dan sempurna", photo: "", igName: "-", igLink: "#" },
+            { name: "Rizqullah Ilham Fathoni", origin: "Indonesia", dob: "-", motto: "Rezeki petunjuk Allah", photo: "", igName: "-", igLink: "#" },
+            { name: "Wahyu Nur Arifianto", origin: "Indonesia", dob: "-", motto: "Cahaya kebijaksanaan", photo: "", igName: "-", igLink: "#" }
+        ];
+
+        function renderMembers(data) {
+            const grid = document.getElementById("membersGrid");
+            const countEl = document.getElementById("member-count");
+            const noResults = document.getElementById("noResults");
+
+            grid.innerHTML = "";
+            countEl.textContent = data.length;
+
+            if (data.length === 0) {
+                noResults.classList.remove("hidden");
+                return;
+            } else {
+                noResults.classList.add("hidden");
+            }
+
+            data.forEach(m => {
+                // Fallback Avatar Image
+                const imgSrc = m.photo ? m.photo : `https://placehold.co/400x400/233686/ffffff?text=${encodeURIComponent(m.name)}`;
+
+                const card = document.createElement("div");
+                card.className = "bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex flex-col justify-between hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group";
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Avatar 1:1 Image -->
+                        <div class="relative overflow-hidden rounded-xl mb-4 avatar-aspect bg-slate-200">
+                            <img src="${imgSrc}" 
+                                 alt="${m.name}" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/233686/ffffff?text=${encodeURIComponent(m.name)}';">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                                <span class="text-white text-xs font-semibold"><i class="fa-solid fa-location-dot text-gold-400 mr-1"></i>${m.origin}</span>
+                            </div>
+                        </div>
+
+                        <!-- Member Info -->
+                        <h4 class="font-bold text-slate-900 text-base leading-snug line-clamp-1 group-hover:text-brand-600 transition-colors" title="${m.name}">${m.name}</h4>
+                        
+                        <div class="mt-2 space-y-1.5 text-xs text-slate-500">
+                            <p class="flex items-center"><i class="fa-regular fa-calendar text-brand-500 w-4"></i> TTL: ${m.dob}</p>
+                            <p class="italic text-slate-600 bg-white p-2 rounded-lg border border-slate-100 mt-2 line-clamp-2">"${m.motto}"</p>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Link Button -->
+                    <div class="mt-4 pt-3 border-t border-slate-200/60">
+                        ${m.igLink && m.igLink !== "#" ? `
+                            <a href="${m.igLink}" target="_blank" class="flex items-center justify-between text-xs font-semibold text-brand-600 hover:text-brand-800 transition">
+                                <span>${m.igName}</span>
+                                <i class="fa-brands fa-instagram text-base text-pink-600"></i>
+                            </a>
+                        ` : `
+                            <span class="text-xs text-slate-400 italic">Instagram tak tersedia</span>
+                        `}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        let currentSlide = 0;
+        const slider = document.getElementById("slider");
+        const dots = document.querySelectorAll(".slide-dot");
+        const totalSlides = 2;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlide) {
+                    dot.classList.add("bg-white", "w-6");
+                    dot.classList.remove("bg-white/50", "w-3");
+                } else {
+                    dot.classList.add("bg-white/50", "w-3");
+                    dot.classList.remove("bg-white", "w-6");
+                }
+            });
+        }
+
+        document.getElementById("nextSlide").addEventListener("click", () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        });
+
+        document.getElementById("prevSlide").addEventListener("click", () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+
+        dots.forEach((dot, idx) => {
+            dot.addEventListener("click", () => {
+                currentSlide = idx;
+                updateSlider();
+            });
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 5000);
+
+        document.getElementById("searchInput").addEventListener("input", (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const filtered = membersData.filter(m => 
+                m.name.toLowerCase().includes(query) || 
+                m.origin.toLowerCase().includes(query) ||
+                m.motto.toLowerCase().includes(query)
+            );
+            renderMembers(filtered);
+        });
+
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        document.querySelectorAll(".mobile-link").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+
+        function openModal() {
+            document.getElementById("contactModal").classList.remove("hidden");
+            document.getElementById("contactModal").classList.add("flex");
+        }
+
+        function closeModal() {
+            document.getElementById("contactModal").classList.add("hidden");
+            document.getElementById("contactModal").classList.remove("flex");
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("Terima kasih! Pesan Anda telah terkirim kepada pengurus Virtu Eterna.");
+            e.target.reset();
+        }
+
+        // Initialize App on DOM Loaded
+        window.addEventListener("DOMContentLoaded", () => {
+            renderMembers(membersData);
+            updateSlider();
+        });
+    </script>
+</body>
+</html>
