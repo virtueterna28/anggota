@@ -1,0 +1,134 @@
+/* Tema kerajaan: gradasi biru tua ke emas */
+:root {
+  --royal-navy: #101a3d;
+  --royal-blue: #1d3f78;
+  --royal-gold: #f2bd3d;
+  --royal-cream: #fff2c2;
+  --royal-page-gradient: linear-gradient(125deg, #101a3d 0%, #1d3f78 48%, #c6921e 100%);
+  --royal-card-gradient: linear-gradient(145deg, #17264e 0%, #294d83 55%, #a87516 100%);
+}
+
+body {
+  padding: 0;
+  background: var(--royal-page-gradient) fixed !important;
+  color: var(--royal-cream);
+}
+
+/* Header */
+#main-header,
+body.royal-mode #main-header {
+  background: linear-gradient(100deg, #101a3d 0%, #1d3f78 58%, #a87516 100%) !important;
+  border-color: rgba(242, 189, 61, 0.8) !important;
+  color: var(--royal-cream) !important;
+}
+
+#main-header a,
+#main-header button:not(#crown-toggle),
+body.royal-mode #main-header a,
+body.royal-mode #main-header button:not(#crown-toggle) {
+  color: var(--royal-cream) !important;
+}
+
+#main-header a:hover,
+body.royal-mode #main-header a:hover {
+  color: #ffdf82 !important;
+}
+
+/* Ganti latar putih bagian utama dengan gradasi biru tua–kuning */
+#about,
+#members,
+#values,
+body.royal-mode #about,
+body.royal-mode #members,
+body.royal-mode #values {
+  background: var(--royal-page-gradient) !important;
+  color: var(--royal-cream) !important;
+}
+
+/* Kartu, panel, dan latar putih di seluruh halaman */
+#membersGrid > div,
+#values .grid > div,
+#about .grid > div,
+body.royal-mode #membersGrid > div,
+body.royal-mode #values .grid > div,
+.bg-white,
+.glass-card {
+  background: var(--royal-card-gradient) !important;
+  border-color: rgba(242, 189, 61, 0.5) !important;
+  color: var(--royal-cream) !important;
+  box-shadow: 0 8px 24px rgba(5, 12, 34, 0.32);
+}
+
+#membersGrid > div:hover,
+#values .grid > div:hover {
+  border-color: #ffdf82 !important;
+  box-shadow: 0 14px 30px rgba(5, 12, 34, 0.45);
+}
+
+/* Kontras teks di bagian terang dan pada kartu */
+#about h2,
+#about h3,
+#members h2,
+#members h4,
+#values h2,
+#values h3,
+#membersGrid h4,
+#values .font-arabic {
+  color: var(--royal-cream) !important;
+}
+
+#about p,
+#members p,
+#values p,
+#about .text-slate-500,
+#members .text-slate-500,
+#values .text-slate-600,
+#membersGrid .text-slate-600,
+#membersGrid .text-slate-500 {
+  color: #f5e8c2 !important;
+}
+
+#about .text-brand-600,
+#membersGrid .text-brand-600,
+#membersGrid .text-brand-500 {
+  color: #ffda70 !important;
+}
+
+/* Area gelap, modal, dan panel menu tetap menyatu dengan tema */
+#home,
+#contact,
+footer,
+#contactModal > div,
+#mobile-menu,
+body.royal-mode #mobile-menu {
+  background: var(--royal-page-gradient) !important;
+  color: var(--royal-cream) !important;
+  border-color: rgba(242, 189, 61, 0.5) !important;
+}
+
+#contactModal h3,
+#contactModal p,
+#mobile-menu a {
+  color: var(--royal-cream) !important;
+}
+
+/* Input tetap gelap agar tulisan dan placeholder mudah dibaca */
+input,
+textarea {
+  background-color: #101a3d !important;
+  color: #fff9e8 !important;
+  border-color: rgba(242, 189, 61, 0.55) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #d9c990 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
